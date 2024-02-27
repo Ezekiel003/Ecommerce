@@ -1,5 +1,6 @@
 from django.db import models
 
+from django.contrib.auth.models import User
 import datetime
 import os
 # Create your models here.
@@ -41,6 +42,18 @@ class Product(models.Model):
     meta_keywords = models.CharField(max_length=150, null=False, blank=False)
     meta_description = models.TextField(max_length=500, null=False,blank=False)
     created_at = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.name
+    
+class Cart(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    product_qty = models.IntegerField(null=False,blank=False)
+    created_at= models.DateTimeField(auto_now_add=True)
+
+class Checkout(models.Model):
+    product = models.ForeignKey(Product,on_delete=models.CASCADE) 
 
     def __str__(self):
         return self.name

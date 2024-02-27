@@ -1,4 +1,5 @@
 {% extends "store/layout/main.html" %}
+{% load static %}
 {% block content %}
 <div class="py-3 bg-dark bg-gradient">
     <div class="container">
@@ -48,15 +49,15 @@
                                          <label for="Quantity">Quantity</label>
                                           <div class="input-group text-center mb-3" style="width:130px;">
                                             <button class="input-group-text decrement-btn">-</button>
-                                            <input type:"text" name="quantity" class="form-control text-center" value="1">
+                                            <input type:"text" name="quantity" class="form-control text-center inp_val" value="1" disabled>
                                             <button class="input-group-text increment-btn">+</button>
                                           </div>
                                         </div>
                                         <div class="col-md-9">
                                             <br/>
                                             {% if products.quantity > 0 %}
-                                            <button type="button" class="btn btn-primary me-3 float-start">Add to Cart <i class="fa fa-shopping-cart"><img src="" alt=""></i></button>
-                                            <button type="button" class="btn btn-success me-3 float-start">Add to Wishlist <i class="fa fa-heart"><img src="" alt=""></i></button>
+                                            <button type="button" class="btn btn-primary me-3 float-start">Add to Cart <i class="fa fa-shopping-cart"><img src="{% static "icons/shopping-cart.png" %}" width="20px" alt=""></i></button>
+                                            <button type="button" class="btn btn-success me-3 float-start">Add to Wishlist <i class="fa fa-heart"><img src="{% static "icons/heart.png" %}" width="20px" alt=""></i></button>
                                             {% endif %}
                                         </div>
                                     </div>
