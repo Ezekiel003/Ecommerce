@@ -24,7 +24,6 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-
 class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     slug = models.CharField(max_length=150, null=False, blank=False)
